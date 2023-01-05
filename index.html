@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Tienda Connection</title>
+</head>
+
+<body>
+    <div class="grid_container">
+        <header>
+            <h2>Tienda Connection</h2>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <!-- <li><a href="./pages/carga_de_productos.html">Cargar</a></li> -->
+                    <li><a href="#titulo_carrito">Carrito</a></li>
+                    <li><a href="">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <div class="hero">
+                    <h1>Una Tienda Unica</h1>
+                    <p>Donde podes comprar lo que quieras cuando quieras</p>
+                    <div id="hero_boton" class="hero__boton">
+                        <input type="checkbox" id="btn-popup">
+                        <label id="dejanos_tu_mail" for="btn-popup" class="btn__abrir-popup">DEJANOS TU MAIL</label>
+                        <div id="popup__container" class="popup__container">
+                            <div id="ventana_emergente" class="ventana__emergente-popup">
+                                <h3>SUSCRIBETE</h3>
+                                <label for="btn-popup">X</label>
+                                <div class="popup__contenido">
+                                    <input type="text" placeholder="Nombre" id="suscribite_nombre">
+                                    <input type="email" placeholder="Email" id="suscribite_email">
+                                </div>
+                                <div class="ventana__emergente-boton">
+                                    <button id="suscribite_enviar" class="btn-enviar">ENVIAR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="menu">
+                <button id="todos" class="menu_categoria activo">Todos los articulos</button>
+                <button id="buzos" class="menu_categoria">Buzos</button>
+                <button id="camperas" class="menu_categoria">Camperas</button>
+                <button id="pantalones" class="menu_categoria">Pantalones</button>
+                <button id="remeras" class="menu_categoria">Remeras</button>
+                <button id="zapatillas" class="menu_categoria">Zapatillas</button>
+            </section>
+
+
+            
+            <section id="productos_container" class="productos_container">
+                <!-- PRODUCTOS INSERTADOS CON JS -->
+            </section>
+
+            
+            <!-- CARRITO DE COMPRAS -->
+            <section id="carrito" class="carrito">
+                <h2 id="titulo_carrito" class="titulo_carrito">CARRITO</h2>
+                <div id="productos_carrito" class="productos_carrito">
+                    <!-- ACA VAN LOS PRODUCTOS AGREADOS AL CARRITO RENDERISADOS DE JS -->
+                </div>
+                <div class="comprar_carrito">
+                    <!-- TOTAL Y BTN COMPRAR AGREGADOS DESDE JS -->
+                </div>
+            </section>
+
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
