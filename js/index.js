@@ -2,39 +2,39 @@
 
 let productos = [
     //BUZOS
-    { id: "buzo-01", categoria: "buzos", titulo: "Buzo Gris", img: "./img/buzo01.png", descripcion: "Buzo griz con capucha y tipo canguro", precio: 4500 },
-    { id: "buzo-02", categoria: "buzos", titulo: "Buzo Gris", img: "./img/buzo02.jpg", descripcion: "Buzo FILA rojo-blanco-azul", precio: 4500 },
+    { id: "buzo-01", categoria: "buzos", titulo: "Buzo Gris", img: "./img/buzo01.png", descripcion: "Buzo griz con capucha y tipo canguro", precio: 4500, cantidad: 1 },
+    { id: "buzo-02", categoria: "buzos", titulo: "Buzo Gris", img: "./img/buzo02.jpg", descripcion: "Buzo FILA rojo-blanco-azul", precio: 4500, cantidad: 1 },
 
     //CAMPERAS
-    { id: "campera-01", categoria: "camperas", titulo: "Campera 86", img: "./img/campera01.jpg", descripcion: "Campera celeste y azul con logo del mundial 86", precio: 7500 },
-    { id: "campera-02", categoria: "camperas", titulo: "Campera AFA", img: "./img/campera02.jpg", descripcion: "Campera negra y celeste con capucha logo de la AFA", precio: 7500 },
-    { id: "campera-03", categoria: "camperas", titulo: "Campera Adidas 01", img: "./img/campera03.jpg", descripcion: "Campera adidas Varilite Down con capucha", precio: 8500 },
-    { id: "campera-04", categoria: "camperas", titulo: "Campera Under", img: "./img/campera04.jpg", descripcion: "Campera Under Armour azul y negra", precio: 6500 },
-    { id: "campera-05", categoria: "camperas", titulo: "Campera Adidas 02", img: "./img/campera05.jpg", descripcion: "Campera Adidas negra", precio: 7500 },
-    { id: "campera-06", categoria: "camperas", titulo: "Campera Lotto", img: "./img/campera06.jpg", descripcion: "Campera Lotto negra", precio: 6500 },
-    { id: "campera-07", categoria: "camperas", titulo: "Campera Nike", img: "./img/campera07.jpg", descripcion: "Campera Nike abrigada azul", precio: 8500 },
+    { id: "campera-01", categoria: "camperas", titulo: "Campera 86", img: "./img/campera01.jpg", descripcion: "Campera celeste y azul con logo del mundial 86", precio: 7500, cantidad: 1 },
+    { id: "campera-02", categoria: "camperas", titulo: "Campera AFA", img: "./img/campera02.jpg", descripcion: "Campera negra y celeste con capucha logo de la AFA", precio: 7500, cantidad: 1 },
+    { id: "campera-03", categoria: "camperas", titulo: "Campera Adidas 01", img: "./img/campera03.jpg", descripcion: "Campera adidas Varilite Down con capucha", precio: 8500, cantidad: 1 },
+    { id: "campera-04", categoria: "camperas", titulo: "Campera Under", img: "./img/campera04.jpg", descripcion: "Campera Under Armour azul y negra", precio: 6500, cantidad: 1 },
+    { id: "campera-05", categoria: "camperas", titulo: "Campera Adidas 02", img: "./img/campera05.jpg", descripcion: "Campera Adidas negra", precio: 7500, cantidad: 1 },
+    { id: "campera-06", categoria: "camperas", titulo: "Campera Lotto", img: "./img/campera06.jpg", descripcion: "Campera Lotto negra", precio: 6500, cantidad: 1 },
+    { id: "campera-07", categoria: "camperas", titulo: "Campera Nike", img: "./img/campera07.jpg", descripcion: "Campera Nike abrigada azul", precio: 8500, cantidad: 1 },
 
     //PANTALONES     
-    { id: "pantalon-01", categoria: "pantalones", titulo: "Pantalon Fila", img: "./img/pantalones01.jpg", descripcion: "Pantalon chupin de mujer Fila azul", precio: 3500 },
-    { id: "pantalon-02", categoria: "pantalones", titulo: "Pantalon Adidas", img: "./img/pantalones02.jpg", descripcion: "Pantalon chupin de mujer Adidas negro", precio: 4500 },
-    { id: "pantalon-03", categoria: "pantalones", titulo: "Pantalon Under", img: "./img/pantalones03.jpg", descripcion: "Pantalon chupin de mujer Under Armour gris", precio: 3500 },
-    { id: "pantalon-04", categoria: "pantalones", titulo: "Pantalon Reebook", img: "./img/pantalones04.jpg", descripcion: "Pantalon de mujer Reebook gris", precio: 2500 },
-    { id: "pantalon-05", categoria: "pantalones", titulo: "Pantalon Nike", img: "./img/pantalones05.jpg", descripcion: "Pantalon de mujer Nike negro", precio: 4500 },
+    { id: "pantalon-01", categoria: "pantalones", titulo: "Pantalon Fila", img: "./img/pantalones01.jpg", descripcion: "Pantalon chupin de mujer Fila azul", precio: 3500, cantidad: 1 },
+    { id: "pantalon-02", categoria: "pantalones", titulo: "Pantalon Adidas", img: "./img/pantalones02.jpg", descripcion: "Pantalon chupin de mujer Adidas negro", precio: 4500, cantidad: 1 },
+    { id: "pantalon-03", categoria: "pantalones", titulo: "Pantalon Under", img: "./img/pantalones03.jpg", descripcion: "Pantalon chupin de mujer Under Armour gris", precio: 3500, cantidad: 1 },
+    { id: "pantalon-04", categoria: "pantalones", titulo: "Pantalon Reebook", img: "./img/pantalones04.jpg", descripcion: "Pantalon de mujer Reebook gris", precio: 2500, cantidad: 1 },
+    { id: "pantalon-05", categoria: "pantalones", titulo: "Pantalon Nike", img: "./img/pantalones05.jpg", descripcion: "Pantalon de mujer Nike negro", precio: 4500, cantidad: 1 },
 
     //REMERAS
-    { id: "remeras-01", categoria: "remeras", titulo: "Remera Trival 01", img: "./img/remera01.png", descripcion: "Remera trival colores celeste-blaco-fucsia-amarillo", precio: 2500 },
-    { id: "remeras-02", categoria: "remeras", titulo: "Remera Trival 02", img: "./img/remera02.png", descripcion: "Remera trival colores celeste-blaco-fucsia-amarillo", precio: 2500 },
-    { id: "remeras-03", categoria: "remeras", titulo: "Remera con manchas", img: "./img/remera03.png", descripcion: "Remera con pintas de colores", precio: 2500 },
-    { id: "remeras-04", categoria: "remeras", titulo: "Remera Unisex", img: "./img/remera04.png", descripcion: "Remera celeste y blanca con logo del mundial 86", precio: 2500 },
-    { id: "remeras-05", categoria: "remeras", titulo: "Remera Lotto", img: "./img/remera05.jpg", descripcion: "Remera Lotto gris y negra", precio: 3500 },
-    { id: "remeras-06", categoria: "remeras", titulo: "Remera Puma", img: "./img/remera06.jpg", descripcion: "Campera Puma celeste", precio: 3500 },
+    { id: "remeras-01", categoria: "remeras", titulo: "Remera Trival 01", img: "./img/remera01.png", descripcion: "Remera trival colores celeste-blaco-fucsia-amarillo", precio: 2500, cantidad: 1 },
+    { id: "remeras-02", categoria: "remeras", titulo: "Remera Trival 02", img: "./img/remera02.png", descripcion: "Remera trival colores celeste-blaco-fucsia-amarillo", precio: 2500, cantidad: 1 },
+    { id: "remeras-03", categoria: "remeras", titulo: "Remera con manchas", img: "./img/remera03.png", descripcion: "Remera con pintas de colores", precio: 2500, cantidad: 1 },
+    { id: "remeras-04", categoria: "remeras", titulo: "Remera Unisex", img: "./img/remera04.png", descripcion: "Remera celeste y blanca con logo del mundial 86", precio: 2500, cantidad: 1 },
+    { id: "remeras-05", categoria: "remeras", titulo: "Remera Lotto", img: "./img/remera05.jpg", descripcion: "Remera Lotto gris y negra", precio: 3500, cantidad: 1 },
+    { id: "remeras-06", categoria: "remeras", titulo: "Remera Puma", img: "./img/remera06.jpg", descripcion: "Campera Puma celeste", precio: 3500, cantidad: 1 },
 
     //ZAPATILLAS
-    { id: "zapatillas-01", categoria: "zapatillas", titulo: "Zapatillas Nike 01", img: "./img/zapatillas01.jpg", descripcion: "Zapatillas Nike Air MAX", precio: 25000 },
-    { id: "zapatillas-02", categoria: "zapatillas", titulo: "Zapatilla Nike 02", img: "./img/zapatillas02.jpg", descripcion: "Zapatillas Nike Air ZOOM naranja y celeste", precio: 25000 },
-    { id: "zapatillas-03", categoria: "zapatillas", titulo: "Zapatilla Nike 03", img: "./img/zapatillas03.jpg", descripcion: "Zapatillas Nike negra y blanca", precio: 25000 },
-    { id: "zapatillas-04", categoria: "zapatillas", titulo: "Zapatilla Nike 04", img: "./img/zapatillas04.jpg", descripcion: "Zapatillas Nike Air ZOOM celeste y azul", precio: 25000 },
-    { id: "zapatillas-05", categoria: "zapatillas", titulo: "Zapatilla Adidas", img: "./img/zapatillas05.jpg", descripcion: "Zapatillas Adidas negra y blanca", precio: 35000 },
+    { id: "zapatillas-01", categoria: "zapatillas", titulo: "Zapatillas Nike 01", img: "./img/zapatillas01.jpg", descripcion: "Zapatillas Nike Air MAX", precio: 25000, cantidad: 1 },
+    { id: "zapatillas-02", categoria: "zapatillas", titulo: "Zapatilla Nike 02", img: "./img/zapatillas02.jpg", descripcion: "Zapatillas Nike Air ZOOM naranja y celeste", precio: 25000, cantidad: 1 },
+    { id: "zapatillas-03", categoria: "zapatillas", titulo: "Zapatilla Nike 03", img: "./img/zapatillas03.jpg", descripcion: "Zapatillas Nike negra y blanca", precio: 25000, cantidad: 1 },
+    { id: "zapatillas-04", categoria: "zapatillas", titulo: "Zapatilla Nike 04", img: "./img/zapatillas04.jpg", descripcion: "Zapatillas Nike Air ZOOM celeste y azul", precio: 25000, cantidad: 1 },
+    { id: "zapatillas-05", categoria: "zapatillas", titulo: "Zapatilla Adidas", img: "./img/zapatillas05.jpg", descripcion: "Zapatillas Adidas negra y blanca", precio: 35000, cantidad: 1 },
 ]
 
 let productos_guardados_localstorage = JSON.stringify(productos);
@@ -99,13 +99,26 @@ function cargar_los_productos() {
         btn_agregar.addEventListener("click", function () {
             
             productos_en_carrito.push({
+                id: producto.id,
                 imagen: producto.img,
                 nombre: producto.titulo,
+                cantidad: producto.cantidad,
                 precio: producto.precio
 
             });
 
-            contenedor_carrito.innerHTML = "";
+            
+            carrito_compras()
+
+        });
+
+    });
+
+}
+
+function carrito_compras() {
+    
+        contenedor_carrito.innerHTML = "";
             
             productos_en_carrito.forEach(function (producto) {
     
@@ -113,8 +126,8 @@ function cargar_los_productos() {
                 div_carrtio.className ="productos_carrito-producto";
                 div_carrtio.innerHTML = `<img src=${producto.imagen} class="imagen_producto-carrito" alt="Imagen del producto">
                                         <h2>${producto.nombre}</h2>
-                                        <input type="text"  class="cantidad_producto" min="1" value="0">
-                                        <h2 class="precio_producto">$${producto.precio}</h2>
+                                        <p>${producto.cantidad}</p>
+                                        <h2 class="precio_producto">$${producto.cantidad * producto.precio}</h2>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash trash_carrito" viewBox="0 0 16 16">
                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -122,6 +135,11 @@ function cargar_los_productos() {
             
                 contenedor_carrito.append(div_carrtio)
             
+                let eliminar = div_carrtio.querySelector(".trash_carrito");
+    
+                eliminar.addEventListener("click", function() {
+                    eliminar_productos_carrito(producto.id)
+                })
 
             });
 
@@ -144,14 +162,25 @@ function cargar_los_productos() {
             let btn_comprar = document.createElement("button");
             btn_comprar.innerText = "Comprar";
             comprar_carrito.append(btn_comprar);
-            
-        });
 
+}
+
+function eliminar_productos_carrito(id_producto) {
+
+    let producto_eliminado = productos_en_carrito.find(function(producto) {
+        return producto.id == id_producto
     });
+
+    productos_en_carrito = productos_en_carrito.filter(function (elemento) {
+        return elemento !== producto_eliminado
+    })
+
+    carrito_compras();
 
 }
 
 cargar_los_productos();
+
 
 botones_menu_categoria.forEach(function (boton) {
 
