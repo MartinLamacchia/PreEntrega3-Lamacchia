@@ -74,6 +74,8 @@ let botones_menu_categoria = document.querySelectorAll(".menu_categoria");
 let comprar_carrito = document.querySelector(".comprar_carrito");
 let productos_en_carrito = [];
 
+// FUNCION PARA CARGAR PRODUTOS AL DOM INDEX.HTML
+
 function cargar_los_productos() {
 
     contenedor_productos.innerHTML = "";
@@ -115,6 +117,9 @@ function cargar_los_productos() {
     });
 
 }
+
+// FUNCION PARA CARGAR LOS PRODUTOS ALCARRITO Y AUMENTA LA CANTIDAD
+
 
 function carrito_compras() {
     
@@ -164,6 +169,8 @@ function carrito_compras() {
             comprar_carrito.append(btn_comprar);
 
 }
+
+// FUNCION PARA ELIMINA PRODUCTOS DEL CARRITO 
 
 function eliminar_productos_carrito(id_producto) {
 
