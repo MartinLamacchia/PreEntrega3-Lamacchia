@@ -410,4 +410,64 @@ main {
 
 footer {
     grid-area: footer;
+    width: 100%;
+    background-color: white;
+    margin-top: 15rem;
+}
+
+footer .footer__conteiner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+footer h2 {
+    font-size: 25px;
+    color: #000000;
+}
+
+footer .footer__conteiner .footer__redes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer .footer__conteiner .footer__redes a img {
+    width: 90%;
+    padding-left: 5px;
+}
+
+footer .footer__gitml {
+    font-size: 13px;
+}
+
+footer .footer__gitml p {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    border: 5px solid white;
+}
+
+footer .footer__gitml a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    border: 5px solid white;
+}
+
+footer .footer__gitml:hover {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
+
+footer .footer__gitml:hover a {
+    text-decoration: underline;
+    color: #304293;
+}
+
+footer .footer__gitml:hover p {
+    text-decoration: underline;
+    color: #304293;
 }
