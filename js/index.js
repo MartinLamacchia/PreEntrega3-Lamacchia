@@ -47,21 +47,39 @@ EN LA VENTANA EMERGENTE DE LA PAGINA DE INICIO
 */
 function enviar() {
 
-    let div_popup_container = document.createElement("div");
-    div_popup_container.classList.add("popup__container");
-    div_popup_container.innerHTML = `<div id="ventana_emergente" class="ventana__emergente-popup">
-                                        <label for="btn-popup">X</label>
-                                        <h2>Bienvenido/a al sistema ${suscribite_nombre.value}</h2>
-                                    </div>`
-    hero_boton.append(div_popup_container);
+    Swal.fire({
+
+        icon: "success",
+        title: `Hola ${suscribite_nombre.value}`,
+        text: "Bienvenido/a a Tienda Connection",
+        text: "Gracias por dejarnos tu mail, te van a estar llegando promociones",
+        color: '#8a2be2',
+        showConfirmButton: false,
+        timer: 3000,
+        showClass:{
+            popup: 'animate__animated animate__rollIn'
+        },
+        hideClass:{
+            popup: 'animate__animated animate__rollOut'
+        }
+        
+    })
 
 }
+
+
+
+
+let name_mail_promociones = [];
+let suscribite_nombre = document.getElementById("suscribite_nombre");
+let suscribite_email = document.getElementById("suscribite_email");
+
+
 
 let suscribite_enviar = document.getElementById("suscribite_enviar");
 let hero_boton = document.getElementById("hero_boton");
 
 suscribite_enviar.addEventListener("click", enviar);
-
 
 
 let contenedor_productos = document.getElementById("productos_container");
@@ -75,7 +93,6 @@ let comprar_carrito = document.querySelector(".comprar_carrito");
 let productos_en_carrito = [];
 
 // FUNCION PARA CARGAR PRODUTOS AL DOM INDEX.HTML
-
 function cargar_los_productos() {
 
     contenedor_productos.innerHTML = "";
@@ -89,38 +106,86 @@ function cargar_los_productos() {
                                     <h3 class="titulo_producto">${producto.titulo}</h3>
                                     <p class="descripcion_producto">${producto.descripcion}</p>
                                     <h4 class="precio_producto">$${producto.precio}</h4>
-                                    </div>`
+                                    </div>
+                                    <button class="boton_producto" id=${producto.id}>Agregar</button>
+                                    `
         contenedor_productos.append(div_productos);
-    
-        let btn_agregar = document.createElement("button");
-        btn_agregar.className = "boton_producto";
-        btn_agregar.innerText = "Agregar";
-    
-        div_productos.append(btn_agregar);
-    
-        btn_agregar.addEventListener("click", function () {
+
+        let btn_agregar = div_productos.querySelector(".boton_producto");
+
+        btn_agregar.addEventListener("click", function (e) {
             
-            productos_en_carrito.push({
-                id: producto.id,
-                imagen: producto.img,
-                nombre: producto.titulo,
-                cantidad: producto.cantidad,
-                precio: producto.precio
+            let boton_agregar = e.target.id
+            let producto_agregado = productos.find(function (producto) {
+                return producto.id == boton_agregar
+            })
 
-            });
+            if (productos_en_carrito.some(function (producto) {
+                return producto.id === boton_agregar
+            })){
 
+                Toastify({
+
+                    text: "Producto agregado",
+                    duration: 1000,
+                    style: {
+                        color: "#02d43d",
+                        background: "rgba(255, 255, 255)",
+                        border: "none",
+                        fontSize: "1.3rem",
+                        fontFamily: "'Quicksand', sans-serif",
+                        fontWeight: "bolder",
             
-            carrito_compras()
+                    }
+                    
+                    }).showToast();
 
-        });
+                
+                let i = productos_en_carrito.findIndex(function (producto) {
+                    return producto.id == boton_agregar
+                })
+                productos_en_carrito[i].cantidad++
+            
+            }else{
+
+                Toastify({
+
+                    text: "Producto agregado",
+                    duration: 1000,
+                    style: {
+                        color: "#02d43d",
+                        background: "rgba(255, 255, 255)",
+                        border: "none",
+                        fontSize: "1.3rem",
+                        fontFamily: "'Quicksand', sans-serif",
+                        fontWeight: "bolder",
+            
+                    }
+                    
+                    }).showToast();
+                    
+                productos_en_carrito.push({
+                    id: producto.id,
+                    imagen: producto.img,
+                    nombre: producto.titulo,
+                    cantidad: producto.cantidad,
+                    precio: producto.precio
+    
+                });
+            }
+
+            console.log(productos_en_carrito)
+
+                    carrito_compras()
+
+        })
 
     });
 
 }
 
+
 // FUNCION PARA CARGAR LOS PRODUTOS ALCARRITO Y AUMENTA LA CANTIDAD
-
-
 function carrito_compras() {
     
         contenedor_carrito.innerHTML = "";
@@ -139,6 +204,7 @@ function carrito_compras() {
                                         </svg>`
             
                 contenedor_carrito.append(div_carrtio)
+
             
                 let eliminar = div_carrtio.querySelector(".trash_carrito");
     
@@ -146,15 +212,17 @@ function carrito_compras() {
                     eliminar_productos_carrito(producto.id)
                 })
 
+
             });
 
             comprar_carrito.innerHTML = "";
 
             function calcular_total(acu, producto) {
                 
-                acu = acu + producto.precio
+                acu = acu + producto.precio * producto.cantidad
                 return acu
             }
+
 
             let costo_total = productos_en_carrito.reduce(calcular_total, 0);
 
@@ -170,8 +238,8 @@ function carrito_compras() {
 
 }
 
-// FUNCION PARA ELIMINA PRODUCTOS DEL CARRITO 
 
+// FUNCION PARA ELIMINA PRODUCTOS DEL CARRITO 
 function eliminar_productos_carrito(id_producto) {
 
     let producto_eliminado = productos_en_carrito.find(function(producto) {
@@ -181,6 +249,22 @@ function eliminar_productos_carrito(id_producto) {
     productos_en_carrito = productos_en_carrito.filter(function (elemento) {
         return elemento !== producto_eliminado
     })
+
+    Toastify({
+
+        text: "Producto Eliminado",
+        duration: 1000,
+        style: {
+            color: "#02d43d",
+            background: "rgba(255, 255, 255)",
+            border: "none",
+            fontSize: "1.3rem",
+            fontFamily: "'Quicksand', sans-serif",
+            fontWeight: "bolder",
+
+        }
+        
+        }).showToast();
 
     carrito_compras();
 
