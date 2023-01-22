@@ -52,7 +52,7 @@ function form_enviado(formulario) {
     let div_formulario = document.createElement("div");
     div_formulario.className = "formulario_enviado";
     div_formulario.innerHTML = `<h2>Muchas gracias por enviarnos sus datos</h2>
-                                <h2>En brebe nos estaremos comunicando</h2>`
+                                <h2>En breve nos estaremos comunicando</h2>`
     formulario_enviado.append(div_formulario);
     
 }
