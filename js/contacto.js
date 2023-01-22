@@ -1,5 +1,5 @@
 
-//API DEL CLIMA
+// API PARA EL CLIMA Y LIBRERIA LUXON PARA LA FECHA Y HORA
 let api_clima = document.querySelector(".api_clima")
 
 fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=es&units=metric&appid=54a376f9b25d8c73557f6f230564b8ed")
@@ -9,7 +9,6 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=es&un
         let fecha = luxon.DateTime;
         let fecha_hoy = fecha.now();
 
-        console.log(fecha_hoy)
         let icon_clima = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
 
         let div_api_clima = document.createElement("div");
@@ -18,18 +17,20 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=es&un
                                     <h4>${Math.round(data.main.temp)}°C</h4>
                                     <img src=${icon_clima}>
                                     <h4>${data.weather[0].description}</h4>
-                                    <h4>${fecha_hoy.day}/${fecha_hoy.month}/${fecha_hoy.year}</h4>
-                                    <h4>${fecha_hoy.hour}:${fecha_hoy.minute}</h4>`
+                                    <h4>${String(fecha_hoy.day).padStart(2, "0")}/${String(fecha_hoy.month).padStart(2, "0")}/${fecha_hoy.year}</h4>
+                                    <h4>${String(fecha_hoy.hour).padStart(2, "0")}:${String(fecha_hoy.minute).padStart(2, "0")}</h4>`
         api_clima.append(div_api_clima);
+
     })
 
 
 
-
+//GUARDAR LOS DISTINTOS FORMULARIOS QUE LOS USUARIOS INGRESEN EN EL LOCALSTORAGE
 let formulario = JSON.parse(localStorage.getItem("formulario")) || [];
 let btn_formulario = document.getElementById("enviar_formulario");
 let formulario_enviado = document.querySelector(".contacto__form--form");
 
+//CREACION DE OBJETOS FORMULARIO
 class Formulario {
     constructor(nombre, apellido, email, telefono, mensaje) {
 
@@ -42,6 +43,10 @@ class Formulario {
     }
 }
 
+/*
+FUNCION PARA GUARDAR LOS DATOS DEL FORMULARIO EN EL LOCALSTORAGE
+Y LA RESPUESTA AUTOMATICA
+*/
 function form_enviado(formulario) {
 
     let formulario_localstorage = JSON.stringify(formulario);
@@ -57,7 +62,7 @@ function form_enviado(formulario) {
     
 }
 
-
+//EVENTO PARA OBTENER LOS DATOS DEL FORMULARIO Y PUSHEAR UN OBJETO AL ARRAY
 btn_formulario.addEventListener("click", function (e) {
 
     e.preventDefault();
@@ -75,8 +80,6 @@ btn_formulario.addEventListener("click", function (e) {
         formulario_mensaje);
 
     formulario.push(nuevo_formulario);
-
-    console.log(formulario);
 
     form_enviado(formulario)
 

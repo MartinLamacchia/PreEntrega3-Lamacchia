@@ -36,6 +36,8 @@ let productos = [
     { id: "zapatillas-05", categoria: "zapatillas", titulo: "Zapatilla Adidas", img: "./img/zapatillas05.jpg", descripcion: "Zapatillas Adidas negra y blanca", precio: 35000, cantidad: 1 }
 ];
 
+
+// API PARA EL CLIMA Y LIBRERIA LUXON PARA LA FECHA Y HORA
 let api_clima = document.querySelector(".api_clima")
 
 fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=es&units=metric&appid=54a376f9b25d8c73557f6f230564b8ed")
@@ -53,16 +55,14 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=es&un
                                     <h4>${Math.round(data.main.temp)}°C</h4>
                                     <img src=${icon_clima}>
                                     <h4>${data.weather[0].description}</h4>
-                                    <h4>${fecha_hoy.day}/${fecha_hoy.month}/${fecha_hoy.year}</h4>
-                                    <h4>${fecha_hoy.hour}:${fecha_hoy.minute}</h4>`
+                                    <h4>${String(fecha_hoy.day).padStart(2, "0")}/${String(fecha_hoy.month).padStart(2, "0")}/${fecha_hoy.year}</h4>
+                                    <h4>${String(fecha_hoy.hour).padStart(2, "0")}:${String(fecha_hoy.minute).padStart(2, "0")}</h4>`
         api_clima.append(div_api_clima);
+
     })
 
 
-
-
-
-
+// GUARDAR PRODUCTOS EN EL LOCALSTORAGE
 let productos_guardados_localstorage = JSON.stringify(productos);
 localStorage.setItem("productos", productos_guardados_localstorage);
 
@@ -323,6 +323,8 @@ function eliminar_productos_carrito(id_producto) {
 cargar_los_productos();
 carrito_compras();
 
+
+//BOTONES DE FILTRO DE PRODUCTOS
 botones_menu_categoria.forEach(function (boton) {
 
     boton.addEventListener("click", function (e) {
