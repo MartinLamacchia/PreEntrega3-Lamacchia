@@ -434,6 +434,10 @@ main {
     transform: scale(1.06);
 }
 
+.carrito_vacio{
+    font-size: 3rem;
+}
+
 /* PAGES */
 
 .contacto__form--form {
@@ -493,6 +497,17 @@ main {
     background-color: #d4025a;
     color: white;
     transform: scale(1.06);
+}
+
+.formulario_enviado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formulario_enviado h2{
+    font-size: 3rem;
 }
 
 

@@ -254,7 +254,7 @@ function carrito_compras() {
     let total_carrito = document.createElement("div");
     total_carrito.className = "total_carrito";
     total_carrito.innerHTML = `<h3>Total</h3>
-                                        <h2 id="costo_total">$${costo_total}</h2>`;
+                                <h2 id="costo_total">$${costo_total}</h2>`;
     comprar_carrito.append(total_carrito);
 
     let btn_comprar = document.createElement("button");
@@ -269,14 +269,16 @@ function carrito_compras() {
         localStorage.setItem("carrito", productosCarrito_guardados_localstorage);
         
         total_carrito.innerHTML = `<h3>Total</h3>
-                                        <h2 id="costo_total">$0</h2>`;
+                                    <h2 id="costo_total">$0</h2>`;
         comprar_carrito.append(total_carrito);
+
+        comprar_carrito.append(btn_comprar);
 
         contenedor_carrito.innerHTML = "";
 
         let div_carrito_vacio = document.createElement("div");
         div_carrito_vacio.className = "carrito_vacio";
-        div_carrito_vacio.innerHTML = `<h3>Muchas gracias por su compra</h3>`
+        div_carrito_vacio.innerHTML = `<h3>Muchas gracias por su compra!!!</h3>`
         contenedor_carrito.append(div_carrito_vacio);
 
     })
