@@ -263,11 +263,17 @@ function carrito_compras() {
 
     btn_comprar.addEventListener("click", function () {
 
-        let finalizar_compra = [];
+        productos_en_carrito = [];
         
         let productosCarrito_guardados_localstorage = JSON.stringify(productos_en_carrito);
-            localStorage.setItem("carrito", productosCarrito_guardados_localstorage);
+        localStorage.setItem("carrito", productosCarrito_guardados_localstorage);
         
+        total_carrito.innerHTML = `<h3>Total</h3>
+                                        <h2 id="costo_total">$0</h2>`;
+        comprar_carrito.append(total_carrito);
+
+        contenedor_carrito.innerHTML = "";
+
         let div_carrito_vacio = document.createElement("div");
         div_carrito_vacio.className = "carrito_vacio";
         div_carrito_vacio.innerHTML = `<h3>Muchas gracias por su compra</h3>`
