@@ -42,6 +42,9 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=es&un
     .then(response => response.json())
     .then(data => {
 
+        let fecha = luxon.DateTime;
+        let fecha_hoy = fecha.now();
+
         let icon_clima = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
 
         let div_api_clima = document.createElement("div");
@@ -49,9 +52,13 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=es&un
         div_api_clima.innerHTML = `<h4>${data.name}</h4>
                                     <h4>${Math.round(data.main.temp)}°C</h4>
                                     <img src=${icon_clima}>
-                                    <h4>${data.weather[0].description}</h4>`
+                                    <h4>${data.weather[0].description}</h4>
+                                    <h4>${fecha_hoy.day}/${fecha_hoy.month}/${fecha_hoy.year}</h4>
+                                    <h4>${fecha_hoy.hour}:${fecha_hoy.minute}</h4>`
         api_clima.append(div_api_clima);
     })
+
+
 
 
 
