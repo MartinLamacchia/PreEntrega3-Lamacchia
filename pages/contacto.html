@@ -1,40 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Tienda Connection-Contacto</title>
 </head>
+
 <body>
     <div class="grid_container">
         <header>
-            <h2>Tienda Connection</h2>
-            <nav>
-                <ul>
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="./contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
+            <div class="header_container">
+                <div class="api_clima">
+                </div>
+                <div class="menu_container">
+                    <h2>Tienda Connection</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="../index.html">Inicio</a></li>
+                            <li><a href="./contacto.html">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </header>
         <main>
-            <section class="img_cargar">
-                <form class="form_carga">
-                    <label for="">ID del producto</label>
-                    <input type="text" id="id_producto">
-                    <label for="">Categoria del Producto</label>
-                    <input type="text" id="categoria_producto">
-                    <label for="">Titulo del Producto</label>
-                    <input type="text" id="titulo_producto">
-                    <input type="file" id="img_producto">
-                    <label for="">Descripcion del Producto</label>
-                    <input type="text" id="descripcion_producto">
-                    <label for="">Precio del producto</label>
-                    <input type="text" id="precio_producto">
-                    <button id="cargar_producto">Cargar</button>
-                </form>
-            </section>
+            
+                <div class="contacto__form--form"> 
+                    <input id="form_nombre" type="text" name="nombre" class="form__input" placeholder="Nombre">
+                    <input id="form_apellido" type="text" name="apellido" class="form__input" placeholder="Apellido">
+                    <input id="form_email" type="email" name="correo" class="form__input" placeholder="Email">
+                    <input id="form_telefono" type="number" name="telefono" class="form__input" placeholder="Telefono">
+                    <textarea name="mensaje" id="form__textarea" class="form__textarea" placeholder="Su mensaje aqui..."></textarea>
+                    <button id="enviar_formulario" class="enviar_formulario">Enviar</button>
+                </div>
+
         </main>
+        <footer>
+            <div class="footer__conteiner">
+                <h2>Tienda Connection</h2>
+                <div class="footer__redes">
+                    <a id="instagram" href="https://www.instagram.com" target="_blank"><img src="../img/instagram.png"
+                            alt="icono-instagram" width="40px"></a>
+                    <a href="https://www.facebook.com/" target="_blank"><img src="../img/facebook.png"
+                            alt="icono facebook" width="47px"></a>
+                    <a href="https://twitter.com/?lang=es" target="_blank"><img src="../img/twitter.png"
+                            alt="icono twitter" width="47px"></a>
+                </div>
+            </div>
+            <div class="footer__gitml">
+                <p>&copy;<a href="https://github.com/MartinLamacchia?tab=repositories" target="_blank">Pagina creada por
+                        Martin Lamacchia</a></p>
+            </div>
+        </footer>
     </div>
+    <script src="../js/contacto.js"></script>
 </body>
+
 </html>

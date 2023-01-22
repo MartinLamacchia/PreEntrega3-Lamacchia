@@ -86,15 +86,8 @@ function enviar() {
 
 }
 
-
-
-
-let name_mail_promociones = [];
 let suscribite_nombre = document.getElementById("suscribite_nombre");
 let suscribite_email = document.getElementById("suscribite_email");
-
-
-
 let suscribite_enviar = document.getElementById("suscribite_enviar");
 let hero_boton = document.getElementById("hero_boton");
 
