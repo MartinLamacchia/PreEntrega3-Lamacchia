@@ -1,9 +1,10 @@
+//ARRAY DE PRODUCTOS
 let productos = [
-
+    //BUZOS
     { id: "buzo-01", categoria: "buzos", titulo: "Buzo Gris", img: "./img/buzo01.png", descripcion: "Buzo griz con capucha y tipo canguro", precio: 4500, cantidad: 1 },
     { id: "buzo-02", categoria: "buzos", titulo: "Buzo Gris", img: "./img/buzo02.jpg", descripcion: "Buzo FILA rojo-blanco-azul", precio: 4500, cantidad: 1 },
 
-
+    //CAMPERAS
     { id: "campera-01", categoria: "camperas", titulo: "Campera 86", img: "./img/campera01.jpg", descripcion: "Campera celeste y azul con logo del mundial 86", precio: 7500, cantidad: 1 },
     { id: "campera-02", categoria: "camperas", titulo: "Campera AFA", img: "./img/campera02.jpg", descripcion: "Campera negra y celeste con capucha logo de la AFA", precio: 7500, cantidad: 1 },
     { id: "campera-03", categoria: "camperas", titulo: "Campera Adidas 01", img: "./img/campera03.jpg", descripcion: "Campera adidas Varilite Down con capucha", precio: 8500, cantidad: 1 },
@@ -12,14 +13,14 @@ let productos = [
     { id: "campera-06", categoria: "camperas", titulo: "Campera Lotto", img: "./img/campera06.jpg", descripcion: "Campera Lotto negra", precio: 6500, cantidad: 1 },
     { id: "campera-07", categoria: "camperas", titulo: "Campera Nike", img: "./img/campera07.jpg", descripcion: "Campera Nike abrigada azul", precio: 8500, cantidad: 1 },
 
-
+    //PANTALONES
     { id: "pantalon-01", categoria: "pantalones", titulo: "Pantalon Fila", img: "./img/pantalones01.jpg", descripcion: "Pantalon chupin de mujer Fila azul", precio: 3500, cantidad: 1 },
     { id: "pantalon-02", categoria: "pantalones", titulo: "Pantalon Adidas", img: "./img/pantalones02.jpg", descripcion: "Pantalon chupin de mujer Adidas negro", precio: 4500, cantidad: 1 },
     { id: "pantalon-03", categoria: "pantalones", titulo: "Pantalon Under", img: "./img/pantalones03.jpg", descripcion: "Pantalon chupin de mujer Under Armour gris", precio: 3500, cantidad: 1 },
     { id: "pantalon-04", categoria: "pantalones", titulo: "Pantalon Reebook", img: "./img/pantalones04.jpg", descripcion: "Pantalon de mujer Reebook gris", precio: 2500, cantidad: 1 },
     { id: "pantalon-05", categoria: "pantalones", titulo: "Pantalon Nike", img: "./img/pantalones05.jpg", descripcion: "Pantalon de mujer Nike negro", precio: 4500, cantidad: 1 },
 
-
+    //REMERAS
     { id: "remeras-01", categoria: "remeras", titulo: "Remera Trival 01", img: "./img/remera01.png", descripcion: "Remera trival colores celeste-blaco-fucsia-amarillo", precio: 2500, cantidad: 1 },
     { id: "remeras-02", categoria: "remeras", titulo: "Remera Trival 02", img: "./img/remera02.png", descripcion: "Remera trival colores celeste-blaco-fucsia-amarillo", precio: 2500, cantidad: 1 },
     { id: "remeras-03", categoria: "remeras", titulo: "Remera con manchas", img: "./img/remera03.png", descripcion: "Remera con pintas de colores", precio: 2500, cantidad: 1 },
@@ -27,7 +28,7 @@ let productos = [
     { id: "remeras-05", categoria: "remeras", titulo: "Remera Lotto", img: "./img/remera05.jpg", descripcion: "Remera Lotto gris y negra", precio: 3500, cantidad: 1 },
     { id: "remeras-06", categoria: "remeras", titulo: "Remera Puma", img: "./img/remera06.jpg", descripcion: "Campera Puma celeste", precio: 3500, cantidad: 1 },
 
-
+    //ZAPATILLAS
     { id: "zapatillas-01", categoria: "zapatillas", titulo: "Zapatillas Nike 01", img: "./img/zapatillas01.jpg", descripcion: "Zapatillas Nike Air MAX", precio: 25000, cantidad: 1 },
     { id: "zapatillas-02", categoria: "zapatillas", titulo: "Zapatilla Nike 02", img: "./img/zapatillas02.jpg", descripcion: "Zapatillas Nike Air ZOOM naranja y celeste", precio: 25000, cantidad: 1 },
     { id: "zapatillas-03", categoria: "zapatillas", titulo: "Zapatilla Nike 03", img: "./img/zapatillas03.jpg", descripcion: "Zapatillas Nike negra y blanca", precio: 25000, cantidad: 1 },
@@ -110,7 +111,7 @@ let botones_menu_categoria = document.querySelectorAll(".menu_categoria");
 let comprar_carrito = document.querySelector(".comprar_carrito");
 
 
-let productos_en_carrito = JSON.parse(localStorage.getItem("carrito"));
+let productos_en_carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
 // FUNCION PARA CARGAR PRODUTOS AL DOM INDEX.HTML
@@ -259,6 +260,20 @@ function carrito_compras() {
     let btn_comprar = document.createElement("button");
     btn_comprar.innerText = "Comprar";
     comprar_carrito.append(btn_comprar);
+
+    btn_comprar.addEventListener("click", function () {
+
+        let finalizar_compra = [];
+        
+        let productosCarrito_guardados_localstorage = JSON.stringify(productos_en_carrito);
+            localStorage.setItem("carrito", productosCarrito_guardados_localstorage);
+        
+        let div_carrito_vacio = document.createElement("div");
+        div_carrito_vacio.className = "carrito_vacio";
+        div_carrito_vacio.innerHTML = `<h3>Muchas gracias por su compra</h3>`
+        contenedor_carrito.append(div_carrito_vacio);
+
+    })
 
 }
 
