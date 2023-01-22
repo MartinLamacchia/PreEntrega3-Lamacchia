@@ -1,11 +1,9 @@
-// ARRAY DE PRODUCTOS
-
 let productos = [
-    //BUZOS
+
     { id: "buzo-01", categoria: "buzos", titulo: "Buzo Gris", img: "./img/buzo01.png", descripcion: "Buzo griz con capucha y tipo canguro", precio: 4500, cantidad: 1 },
     { id: "buzo-02", categoria: "buzos", titulo: "Buzo Gris", img: "./img/buzo02.jpg", descripcion: "Buzo FILA rojo-blanco-azul", precio: 4500, cantidad: 1 },
 
-    //CAMPERAS
+
     { id: "campera-01", categoria: "camperas", titulo: "Campera 86", img: "./img/campera01.jpg", descripcion: "Campera celeste y azul con logo del mundial 86", precio: 7500, cantidad: 1 },
     { id: "campera-02", categoria: "camperas", titulo: "Campera AFA", img: "./img/campera02.jpg", descripcion: "Campera negra y celeste con capucha logo de la AFA", precio: 7500, cantidad: 1 },
     { id: "campera-03", categoria: "camperas", titulo: "Campera Adidas 01", img: "./img/campera03.jpg", descripcion: "Campera adidas Varilite Down con capucha", precio: 8500, cantidad: 1 },
@@ -14,14 +12,14 @@ let productos = [
     { id: "campera-06", categoria: "camperas", titulo: "Campera Lotto", img: "./img/campera06.jpg", descripcion: "Campera Lotto negra", precio: 6500, cantidad: 1 },
     { id: "campera-07", categoria: "camperas", titulo: "Campera Nike", img: "./img/campera07.jpg", descripcion: "Campera Nike abrigada azul", precio: 8500, cantidad: 1 },
 
-    //PANTALONES     
+
     { id: "pantalon-01", categoria: "pantalones", titulo: "Pantalon Fila", img: "./img/pantalones01.jpg", descripcion: "Pantalon chupin de mujer Fila azul", precio: 3500, cantidad: 1 },
     { id: "pantalon-02", categoria: "pantalones", titulo: "Pantalon Adidas", img: "./img/pantalones02.jpg", descripcion: "Pantalon chupin de mujer Adidas negro", precio: 4500, cantidad: 1 },
     { id: "pantalon-03", categoria: "pantalones", titulo: "Pantalon Under", img: "./img/pantalones03.jpg", descripcion: "Pantalon chupin de mujer Under Armour gris", precio: 3500, cantidad: 1 },
     { id: "pantalon-04", categoria: "pantalones", titulo: "Pantalon Reebook", img: "./img/pantalones04.jpg", descripcion: "Pantalon de mujer Reebook gris", precio: 2500, cantidad: 1 },
     { id: "pantalon-05", categoria: "pantalones", titulo: "Pantalon Nike", img: "./img/pantalones05.jpg", descripcion: "Pantalon de mujer Nike negro", precio: 4500, cantidad: 1 },
 
-    //REMERAS
+
     { id: "remeras-01", categoria: "remeras", titulo: "Remera Trival 01", img: "./img/remera01.png", descripcion: "Remera trival colores celeste-blaco-fucsia-amarillo", precio: 2500, cantidad: 1 },
     { id: "remeras-02", categoria: "remeras", titulo: "Remera Trival 02", img: "./img/remera02.png", descripcion: "Remera trival colores celeste-blaco-fucsia-amarillo", precio: 2500, cantidad: 1 },
     { id: "remeras-03", categoria: "remeras", titulo: "Remera con manchas", img: "./img/remera03.png", descripcion: "Remera con pintas de colores", precio: 2500, cantidad: 1 },
@@ -29,13 +27,33 @@ let productos = [
     { id: "remeras-05", categoria: "remeras", titulo: "Remera Lotto", img: "./img/remera05.jpg", descripcion: "Remera Lotto gris y negra", precio: 3500, cantidad: 1 },
     { id: "remeras-06", categoria: "remeras", titulo: "Remera Puma", img: "./img/remera06.jpg", descripcion: "Campera Puma celeste", precio: 3500, cantidad: 1 },
 
-    //ZAPATILLAS
+
     { id: "zapatillas-01", categoria: "zapatillas", titulo: "Zapatillas Nike 01", img: "./img/zapatillas01.jpg", descripcion: "Zapatillas Nike Air MAX", precio: 25000, cantidad: 1 },
     { id: "zapatillas-02", categoria: "zapatillas", titulo: "Zapatilla Nike 02", img: "./img/zapatillas02.jpg", descripcion: "Zapatillas Nike Air ZOOM naranja y celeste", precio: 25000, cantidad: 1 },
     { id: "zapatillas-03", categoria: "zapatillas", titulo: "Zapatilla Nike 03", img: "./img/zapatillas03.jpg", descripcion: "Zapatillas Nike negra y blanca", precio: 25000, cantidad: 1 },
     { id: "zapatillas-04", categoria: "zapatillas", titulo: "Zapatilla Nike 04", img: "./img/zapatillas04.jpg", descripcion: "Zapatillas Nike Air ZOOM celeste y azul", precio: 25000, cantidad: 1 },
-    { id: "zapatillas-05", categoria: "zapatillas", titulo: "Zapatilla Adidas", img: "./img/zapatillas05.jpg", descripcion: "Zapatillas Adidas negra y blanca", precio: 35000, cantidad: 1 },
-]
+    { id: "zapatillas-05", categoria: "zapatillas", titulo: "Zapatilla Adidas", img: "./img/zapatillas05.jpg", descripcion: "Zapatillas Adidas negra y blanca", precio: 35000, cantidad: 1 }
+];
+
+let api_clima = document.querySelector(".api_clima")
+
+fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=es&units=metric&appid=54a376f9b25d8c73557f6f230564b8ed")
+    .then(response => response.json())
+    .then(data => {
+
+        let icon_clima = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
+
+        let div_api_clima = document.createElement("div");
+        div_api_clima.className = "api_clima_js";
+        div_api_clima.innerHTML = `<h4>${data.name}</h4>
+                                    <h4>${Math.round(data.main.temp)}°C</h4>
+                                    <img src=${icon_clima}>
+                                    <h4>${data.weather[0].description}</h4>`
+        api_clima.append(div_api_clima);
+    })
+
+
+
 
 let productos_guardados_localstorage = JSON.stringify(productos);
 localStorage.setItem("productos", productos_guardados_localstorage);
@@ -56,13 +74,13 @@ function enviar() {
         color: '#8a2be2',
         showConfirmButton: false,
         timer: 3000,
-        showClass:{
+        showClass: {
             popup: 'animate__animated animate__rollIn'
         },
-        hideClass:{
+        hideClass: {
             popup: 'animate__animated animate__rollOut'
         }
-        
+
     })
 
 }
@@ -90,7 +108,10 @@ let array_productos = JSON.parse(productos_en_localstorage);
 let contenedor_carrito = document.getElementById("productos_carrito");
 let botones_menu_categoria = document.querySelectorAll(".menu_categoria");
 let comprar_carrito = document.querySelector(".comprar_carrito");
-let productos_en_carrito = [];
+
+
+let productos_en_carrito = JSON.parse(localStorage.getItem("carrito"));
+
 
 // FUNCION PARA CARGAR PRODUTOS AL DOM INDEX.HTML
 function cargar_los_productos() {
@@ -98,7 +119,7 @@ function cargar_los_productos() {
     contenedor_productos.innerHTML = "";
 
     array_productos.forEach(function (producto) {
-    
+
         let div_productos = document.createElement("div");
         div_productos.className = "productos_container-producto";
         div_productos.innerHTML = `<img class="imagen_producto" src=${producto.img} alt=${producto.id}>
@@ -114,7 +135,7 @@ function cargar_los_productos() {
         let btn_agregar = div_productos.querySelector(".boton_producto");
 
         btn_agregar.addEventListener("click", function (e) {
-            
+
             let boton_agregar = e.target.id
             let producto_agregado = productos.find(function (producto) {
                 return producto.id == boton_agregar
@@ -122,7 +143,7 @@ function cargar_los_productos() {
 
             if (productos_en_carrito.some(function (producto) {
                 return producto.id === boton_agregar
-            })){
+            })) {
 
                 Toastify({
 
@@ -135,18 +156,18 @@ function cargar_los_productos() {
                         fontSize: "1.3rem",
                         fontFamily: "'Quicksand', sans-serif",
                         fontWeight: "bolder",
-            
-                    }
-                    
-                    }).showToast();
 
-                
+                    }
+
+                }).showToast();
+
+
                 let i = productos_en_carrito.findIndex(function (producto) {
                     return producto.id == boton_agregar
                 })
                 productos_en_carrito[i].cantidad++
-            
-            }else{
+
+            } else {
 
                 Toastify({
 
@@ -159,24 +180,27 @@ function cargar_los_productos() {
                         fontSize: "1.3rem",
                         fontFamily: "'Quicksand', sans-serif",
                         fontWeight: "bolder",
-            
+
                     }
-                    
-                    }).showToast();
-                    
+
+                }).showToast();
+
                 productos_en_carrito.push({
                     id: producto.id,
                     imagen: producto.img,
                     nombre: producto.titulo,
                     cantidad: producto.cantidad,
                     precio: producto.precio
-    
+
                 });
             }
 
-            console.log(productos_en_carrito)
 
-                    carrito_compras()
+
+            carrito_compras()
+
+            let productosCarrito_guardados_localstorage = JSON.stringify(productos_en_carrito);
+            localStorage.setItem("carrito", productosCarrito_guardados_localstorage);
 
         })
 
@@ -187,14 +211,14 @@ function cargar_los_productos() {
 
 // FUNCION PARA CARGAR LOS PRODUTOS ALCARRITO Y AUMENTA LA CANTIDAD
 function carrito_compras() {
-    
-        contenedor_carrito.innerHTML = "";
-            
-            productos_en_carrito.forEach(function (producto) {
-    
-                let div_carrtio = document.createElement("div");
-                div_carrtio.className ="productos_carrito-producto";
-                div_carrtio.innerHTML = `<img src=${producto.imagen} class="imagen_producto-carrito" alt="Imagen del producto">
+
+    contenedor_carrito.innerHTML = "";
+
+    productos_en_carrito.forEach(function (producto) {
+
+        let div_carrtio = document.createElement("div");
+        div_carrtio.className = "productos_carrito-producto";
+        div_carrtio.innerHTML = `<img src=${producto.imagen} class="imagen_producto-carrito" alt="Imagen del producto">
                                         <h2>${producto.nombre}</h2>
                                         <p>${producto.cantidad}</p>
                                         <h2 class="precio_producto">$${producto.cantidad * producto.precio}</h2>
@@ -202,39 +226,39 @@ function carrito_compras() {
                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                                         </svg>`
-            
-                contenedor_carrito.append(div_carrtio)
 
-            
-                let eliminar = div_carrtio.querySelector(".trash_carrito");
-    
-                eliminar.addEventListener("click", function() {
-                    eliminar_productos_carrito(producto.id)
-                })
+        contenedor_carrito.append(div_carrtio)
 
 
-            });
+        let eliminar = div_carrtio.querySelector(".trash_carrito");
 
-            comprar_carrito.innerHTML = "";
-
-            function calcular_total(acu, producto) {
-                
-                acu = acu + producto.precio * producto.cantidad
-                return acu
-            }
+        eliminar.addEventListener("click", function () {
+            eliminar_productos_carrito(producto.id)
+        })
 
 
-            let costo_total = productos_en_carrito.reduce(calcular_total, 0);
+    });
 
-            let total_carrito = document.createElement("div");
-            total_carrito.className = "total_carrito";
-            total_carrito.innerHTML = `<h3>Total</h3>
+    comprar_carrito.innerHTML = "";
+
+    function calcular_total(acu, producto) {
+
+        acu = acu + producto.precio * producto.cantidad
+        return acu
+    }
+
+
+    let costo_total = productos_en_carrito.reduce(calcular_total, 0);
+
+    let total_carrito = document.createElement("div");
+    total_carrito.className = "total_carrito";
+    total_carrito.innerHTML = `<h3>Total</h3>
                                         <h2 id="costo_total">$${costo_total}</h2>`;
-            comprar_carrito.append(total_carrito);
+    comprar_carrito.append(total_carrito);
 
-            let btn_comprar = document.createElement("button");
-            btn_comprar.innerText = "Comprar";
-            comprar_carrito.append(btn_comprar);
+    let btn_comprar = document.createElement("button");
+    btn_comprar.innerText = "Comprar";
+    comprar_carrito.append(btn_comprar);
 
 }
 
@@ -242,13 +266,16 @@ function carrito_compras() {
 // FUNCION PARA ELIMINA PRODUCTOS DEL CARRITO 
 function eliminar_productos_carrito(id_producto) {
 
-    let producto_eliminado = productos_en_carrito.find(function(producto) {
+    let producto_eliminado = productos_en_carrito.find(function (producto) {
         return producto.id == id_producto
     });
 
     productos_en_carrito = productos_en_carrito.filter(function (elemento) {
         return elemento !== producto_eliminado
     })
+
+    let productosCarrito_eliminado_localstorage = JSON.stringify(productos_en_carrito);
+    localStorage.setItem("carrito", productosCarrito_eliminado_localstorage);
 
     Toastify({
 
@@ -263,22 +290,22 @@ function eliminar_productos_carrito(id_producto) {
             fontWeight: "bolder",
 
         }
-        
-        }).showToast();
+
+    }).showToast();
 
     carrito_compras();
 
 }
 
 cargar_los_productos();
-
+carrito_compras();
 
 botones_menu_categoria.forEach(function (boton) {
 
     boton.addEventListener("click", function (e) {
 
         botones_menu_categoria.forEach(function (boton) {
-            
+
             boton.classList.remove("activo");
 
         })
@@ -286,7 +313,7 @@ botones_menu_categoria.forEach(function (boton) {
         e.target.classList.add("activo");
 
         if (e.target.id != "todos") {
-            
+
             array_productos = array_productos.filter(function (producto_elegido) {
 
                 return producto_elegido.categoria == e.target.id
@@ -298,12 +325,12 @@ botones_menu_categoria.forEach(function (boton) {
             productos_en_localstorage = localStorage.getItem("productos");
             array_productos = JSON.parse(productos_en_localstorage)
 
-        }else{
+        } else {
 
             cargar_los_productos(array_productos);
 
         }
 
     });
-    
+
 });
